@@ -22,14 +22,16 @@ $(call inherit-product-if-exists, vendor/samsung/d2-common/d2-common-vendor.mk)
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay
 
+ifneq ($(VARIENT_MODEL),expressatt)
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
+endif
 
 # Boot animation
 
-ifneq ($(VARIENT_MODEL),apexqtmo)
-## apexq merge colusion
+ifeq ($(filter apexqtmo expressatt,$(VARIENT_MODEL)),)
+## merge colusion
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=320
