@@ -22,21 +22,18 @@ $(call inherit-product-if-exists, vendor/samsung/d2-common/d2-common-vendor.mk)
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay
 
-ifneq ($(VARIENT_MODEL),expressatt)
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
-endif
 
 # Boot animation
 
-ifeq ($(filter apexqtmo expressatt,$(VARIENT_MODEL)),)
-## merge colusion
+ifneq ($(VARIENT_MODEL),apexqtmo)
+## apexq merge colusion
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=320
 endif
-
 # Audio configuration
 PRODUCT_COPY_FILES += \
         device/samsung/d2-common/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
@@ -92,10 +89,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
 
-# Charging LED property
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.enable-charging-led=0
-
 # Increase the HWUI font cache since we have tons of RAM
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_cache_width=2048
@@ -116,7 +109,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
     persist.radio.apm_sim_not_pwdn=1 \
     ro.telephony.call_ring.multiple=0 \
-    ro.sf.lcd_density=320 \
     ro.ril.transmitpower=true \
     ro.opengles.version=131072 \
     persist.audio.vr.enable=false \
@@ -128,7 +120,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=true \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
-    ro.ril.svdo=true \
+    ro.config.svlte1x=true \
     ro.cdma.subscribe_on_ruim_ready=true \
     persist.radio.no_wait_for_card=0 \
     keyguard.no_require_sim=true \
@@ -149,11 +141,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.handset.mic=digital \
     ro.qc.sdk.audio.fluencetype=fluence
 endif
-
-# enable repeatable keys in cwm
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cwm.enable_key_repeat=true \
-    ro.cwm.repeatable_keys=114,115
 
 # NFC Support
 PRODUCT_PACKAGES += \

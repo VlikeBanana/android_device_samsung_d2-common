@@ -14,6 +14,7 @@ lib/libacdbloader.so
 lib/libaudcal.so
 
 # mmparser extended
+lib/libExtendedExtractor.so
 lib/libmmparser.so
 lib/libmmosal.so
 lib/libdivxdrm.so
@@ -54,9 +55,7 @@ lib/libqmi.so
 lib/libqdi.so
 lib/libqdp.so
 lib/libqmiservices.so
-lib/libril.so
 lib/libreference-ril.so
-lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 lib/libdsutils.so
 lib/libdsi_netctrl.so
@@ -69,6 +68,8 @@ lib/libqmi_encdec.so
 lib/libatparser.so
 lib/libqcci_legacy.so
 lib/libqmi_client_qmux.so
+lib/libomission_avoidance.so
+lib/libfactoryutil.so
 
 # GPS
 lib/libgeofence.so
@@ -108,6 +109,7 @@ lib/libchromatix_ov2720_default_video.so
 lib/libchromatix_ov2720_preview.so
 lib/libchromatix_s5k6a3yx_default_video.so
 lib/libchromatix_s5k6a3yx_preview.so
+lib/libchromatix_s5k6a3yx_smart_stay.so
 lib/libchromatix_s5k6a3yx_vt_hd.so
 lib/libchromatix_s5k6a3yx_vt.so
 
@@ -115,9 +117,11 @@ lib/libchromatix_s5k6a3yx_vt.so
 cameradata/SlimISP_GC.bin
 cameradata/SlimISP_GD.bin
 cameradata/SlimISP_GE.bin
+cameradata/SlimISP_GH.bin
 cameradata/SlimISP_ZC.bin
 cameradata/SlimISP_ZD.bin
 cameradata/SlimISP_ZE.bin
+cameradata/SlimISP_ZH.bin
 cameradata/datapattern_420sp.yuv
 cameradata/datapattern_front_420sp.yuv
 

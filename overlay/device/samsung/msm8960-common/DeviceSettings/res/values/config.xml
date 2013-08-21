@@ -5,4 +5,5 @@
 
     <!-- Vibrator Tuning -->
     <string name="vibrator_sysfs_file">"/sys/class/timed_output/vibrator/pwm_value"</string>
+
 </resources>

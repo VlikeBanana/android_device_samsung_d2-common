@@ -83,7 +83,6 @@ done
 
 BASE=../../../vendor/$VENDOR/d2-common/proprietary
 rm -rf $BASE/*
-
 for FILE in `egrep -v '(^#|^$)' ../d2-common/common-proprietary-files.txt`; do
   echo "Extracting /system/$FILE ..."
   OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
