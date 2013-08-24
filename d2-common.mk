@@ -81,11 +81,6 @@ PRODUCT_PACKAGES += \
     libnetcmdiface \
     macloader
 
-# Wifi
-PRODUCT_PACKAGES += \
-    libnetcmdiface \
-    macloader
-
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
